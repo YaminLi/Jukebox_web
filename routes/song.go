@@ -3,10 +3,10 @@ package routes
 import (
   "encoding/json"
   "net/http"
-
+  "fmt"
   "github.com/gorilla/mux"
 
-  "github.com/YaminLi/Jukebox_test/models"
+  "../models"
 
 )
 
@@ -20,7 +20,6 @@ func addSongRoutes(r *mux.Router) {
 }
 
 func getSongsHandler(w http.ResponseWriter, req *http.Request) {
-  fmt.Println("TEST")
   // Get songs
   var songs []models.Song
   models.DB.Find(&songs)
@@ -60,7 +59,7 @@ func deleteSongHandler(w http.ResponseWriter, req *http.Request) {
   fmt.Println(song_id)
 
   // Get song by id
-  var song models.song
+  var song models.Song
   models.DB.Where("ID = ?", song_id).First(&song)
 
   // Delete song

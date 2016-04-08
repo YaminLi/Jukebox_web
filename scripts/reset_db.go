@@ -2,7 +2,7 @@ package main
 
 import (
   "fmt"
-  "github.com/YaminLi/Jukebox_test/models"
+  "./models"
   _ "github.com/jinzhu/gorm/dialects/postgres"
 )
 
